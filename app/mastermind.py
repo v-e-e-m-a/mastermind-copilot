@@ -35,7 +35,7 @@ def game_loop():
     code = generate_code()
     print(code)
     print("Guess the code! Each character in the code is" 
-          + " one of the following letters: R, O, Y, G, B, P")
+            + " one of the following letters: R, O, Y, G, B, P")
     print("")
     
     num_guesses = 0
