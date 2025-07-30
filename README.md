@@ -52,7 +52,9 @@ Before beginning the project, run the unit tests. At this point, all unit tests 
 
 ### Get Familiar
 
-Take time to read through the Wave 1 implementation requirements and the tests for Wave 1. Write down your questions, and spend some time going through your understanding of the requirements and tests. Make sure you can run the tests and see them fail.
+Take time to read through the Wave implementation requirements and the tests for each Wave. 
+- Write down your questions, and spend some time going through your understanding of the requirements and tests. 
+- Make sure you can run the tests and see them fail.
 
 ### Wave 1: Game Setup, Validate Guesses, and Game End Conditions
 
@@ -72,13 +74,14 @@ Next, we need a way to check if a user's guess is of the correct length and only
 - Has one parameter
     - `guess` describes some input list
 - Returns either `True` or `False`
-- Returns `True` 
-    - if every element in `guess` one of the following letters: R, O, Y, G, B, P
-    - the length of `guess` is 4 (the length of the generated code)
-- Returns `False` if not; if there is a letter in `input` that is not R, O, Y, G, B, or P or the length of `input` is not 4
+    - Returns `True` 
+        - if every element in `guess` one of the following letters: R, O, Y, G, B, P
+        - the length of `guess` is 4 (the length of the generated code)
+    - Returns `False` if not; 
+        - if there is a letter in `input` that is not R, O, Y, G, B, or P 
+        - if the length of `input` is not 4
 - `validate_guess` should be case insensitive
-    - `input = ['R','Y','G','B']` should return `True`
-    - `input = '['r','y','g','b']` should return `True`
+    - Both the inputs `['R','Y','G','B']` and `['r','y','g','b']` should return `True`
 
 **Examples**
 
@@ -99,9 +102,11 @@ Implement a function called `check_win_or_lose` in `game.py`. This function shou
   - `guess`, which is a list of characters representing the user's guess
   - `code`, which is a list of characters representing the code the user is attempting to guess
   - `num_guesses`, which is an integer representing the total number of guesses the user has made in the round thus far
-- Returns `True` if the user has won the game: `guess` and `code` are the same _and_ `num_guesses` is less than or equal to 8
-- Returns `False` if the user has lost the game: if `guess` and `code` are not the same _and_ `num_guesses` is more than 8 
-- Returns `None` otherwise - the game is still in progress
+- Returns `True` if the user has won the game 
+    - `guess` and `code` are the same _and_ `num_guesses` is less than or equal to 8
+- Returns `False` if the user has lost the game
+    - if `guess` and `code` are not the same _and_ `num_guesses` is more than 8 
+- Returns `None` if the game is still in progress, the codebreaker has not lost or won the game yet.
 
 **Examples**
 
@@ -127,7 +132,7 @@ The first function to implement is `color_count` in `game.py`. This function sho
     - `guess`, which is a string of characters representing the user's guess
     - `code`, which is a string of characters representing the code the user is attempting to guess
 - Returns an integer representing the number of pegs that are the correct color (aka letter), **regardless of whether they are in the correct position or not**
-- If no pegs are the correct color, `color_count` returns `0`
+    - If no pegs are the correct color, `color_count` returns `0`
 - A letter that appears more times in `guess` than it appears in `code` is counted the number of times it appears in `code`
 - A letter that appears fewer times in `guess` than it appears in `code` is counted the number of times it appears in `guess`
 
@@ -148,7 +153,7 @@ The second function to implement is `correct_pos_and_color` in `game.py`. This f
     - `guess`, which is a list of characters representing the user's guess
     - `code`, which is a list of characters representing the code the user is attempting to guess
 - Returns an integer representing the number of pegs in `guess` whose color (aka letter) is the same as the peg at the matching index in `code`
-- If no pegs in `guess` match both the color and index of those in `code`, `correct_pos_and_color` returns `0`
+    - If no pegs in `guess` match both the color and index of those in `code`, `correct_pos_and_color` returns `0`
 
 **Examples**
 
