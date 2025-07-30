@@ -39,7 +39,7 @@ def game_loop():
     print("")
     
     num_guesses = 0
-    while num_guesses <= 8:
+    while num_guesses < 8:
         num_guesses += 1
         guess = get_valid_guess()
         

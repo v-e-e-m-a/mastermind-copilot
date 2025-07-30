@@ -18,7 +18,10 @@ def validate_guess(guess):
 
 
 def get_uppercased_guess(guess):
-    return [letter.upper() for letter in guess]
+    uppercased_guess = []
+    for letter in guess:
+        uppercased_guess.append(letter.upper())
+    return uppercased_guess
 
 
 def check_win_or_lose(guess, code, num_guesses):
