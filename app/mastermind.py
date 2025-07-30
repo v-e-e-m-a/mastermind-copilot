@@ -61,7 +61,7 @@ def get_valid_guess():
     while not validate_guess(guess):
         print(f'The guess "{guess}" was invalid')
         print("Please enter a new guess that is 4 letters long," 
-              + "using only the letters R, O, Y, G, B, and P:")
+                + "using only the letters R, O, Y, G, B, and P:")
         guess = input("")
 
     return guess
