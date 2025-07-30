@@ -6,7 +6,11 @@ COLORS = {"R", "O", "Y", "G", "B", "P"}
 # Wave 1
 def generate_code():
     colors_tuple = tuple(COLORS)
-    return [random.choice(colors_tuple) for _ in range(4)]
+    code = []
+    for _ in range(4):
+        code.append(random.choice(colors_tuple))
+
+    return code
 
 
 def validate_guess(guess):
@@ -14,14 +18,11 @@ def validate_guess(guess):
         return False
     
     guess_uppercase = get_uppercased_guess(guess)
-    return set(guess_uppercase).issubset(COLORS)
-
-
-def get_uppercased_guess(guess):
-    uppercased_guess = []
-    for letter in guess:
-        uppercased_guess.append(letter.upper())
-    return uppercased_guess
+    for letter in guess_uppercase:
+        if letter not in COLORS:
+            return False
+        
+    return True
 
 
 def check_win_or_lose(guess, code, num_guesses):
@@ -31,7 +32,15 @@ def check_win_or_lose(guess, code, num_guesses):
     guess_uppercase = get_uppercased_guess(guess)
     if code == guess_uppercase:
         return True
+    else:
+        return None
 
+
+def get_uppercased_guess(guess):
+    uppercased_guess = []
+    for letter in guess:
+        uppercased_guess.append(letter.upper())
+    return uppercased_guess
 
 # Wave 2
 def color_count(guess, code):
@@ -93,4 +102,3 @@ def format_guess_stats(guess_stats):
         formatted_stats[num_guesses - 1] = "X" * wins
 
     return formatted_stats
-
