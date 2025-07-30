@@ -96,7 +96,7 @@ def test_validate_guess_true_lowercase_letters():
 
 # --------------------------test check_win_or_lose------------------------------------
 
-def test_check_win_both_conditions_true():
+def test_check_win_or_lose_both_conditions_true():
     #Arrange
     guess = ['R','B','B','P']
     code = ['R','B','B','P']
@@ -109,7 +109,7 @@ def test_check_win_both_conditions_true():
     assert result is True
 
 
-def test_check_win_false_if_exceeds_max_guesses():
+def test_check_win_or_lose_false_if_exceeds_max_guesses():
     #Arrange
     guess = ['R','B','B','P']
     code = ['R','B','B','P']
@@ -122,7 +122,7 @@ def test_check_win_false_if_exceeds_max_guesses():
     assert result is False
 
 
-def test_check_win_none_if_game_ongoing():
+def test_check_win_or_lose_none_if_game_ongoing():
     #Arrange
     guess = ['R','B','B','P']
     code = ['R','B','B','O']
