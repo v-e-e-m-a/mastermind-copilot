@@ -174,7 +174,7 @@ The final function to implement is `check_guess` in `game.py`. This function sho
 | :---: | :--: | :----: |
 | ['R','P','Y','G'] | ['G','Y','P','R'] | 0, 4 |
 | ['R','P','Y','G'] | ['R','Y','P','G'] | 2, 2 |
-| ['R','R','R','B'] | ['B','I','R','R'] | 1, 2 |
+| ['R','R','R','B'] | ['B','P','R','R'] | 1, 2 |
 | ['R','R','P','P'] | ['B','R','R','R'] | 1, 1 |
 | ['R','P','Y','G'] | ['O','O','O','O'] | 0, 0 |
 
