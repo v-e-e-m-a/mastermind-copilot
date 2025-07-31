@@ -45,8 +45,7 @@ Throughout the development of our project, we will use a combination of unit tes
 
 Optionally, you may find it useful to write your own unit tests to further test Waves 1-3 or your game loop in Wave 4. You may also find it helpful to do play testing of the functions you develop in Waves 1-3 by importing and calling them in `main.py` or `mastermind.py`'s `mastermind` function.
 
-Before beginning the project, run the unit tests. At this point, all unit tests but one should fail. 
-- The final test in Wave 1 (`test_check_win_or_lose_none_if_game_ongoing`) should pass by default as it checks your `check_win_or_lose` function returns `None`.
+Before beginning the project, try to run the unit tests. At this point, unit test discovery should fail since we do not have placeholders for any of the functions in `game.py`
 
 ## Project Directions
 
