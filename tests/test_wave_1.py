@@ -2,6 +2,14 @@ from app.game import generate_code, validate_guess, check_win_or_lose
 
 # --------------------------test generate_code------------------------------------
 
+def test_generate_code_returns_list():
+    #Arrange/Act
+    result = generate_code()
+
+    #Assert
+    assert isinstance(result, list)
+
+
 def test_generate_code_length_four():
     #Arrange/Act
     result = generate_code()
@@ -12,7 +20,7 @@ def test_generate_code_length_four():
 
 def test_generate_code_uses_valid_letters():
     #Arrange
-    valid_letters = ['R', 'O', 'Y', 'G', 'B', 'P']
+    valid_letters = {'R', 'O', 'Y', 'G', 'B', 'P'}
 
     #Act
     result = generate_code()
@@ -20,6 +28,16 @@ def test_generate_code_uses_valid_letters():
     #Assert
     for letter in result:
         assert letter in valid_letters
+
+
+def test_generate_code_half_or_less_duplicates_over_10_runs():
+    #Arrange/Act
+    # Run generate_code multiple times and check for different outputs
+    codes = {tuple(generate_code()) for _ in range(10)}
+
+    #Assert
+    # At least half of the codes generated should be unique
+    assert len(codes) > 5
 
 # --------------------------test validate_guess------------------------------------
 
