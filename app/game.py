@@ -22,6 +22,23 @@ def validate_guess(guess):
             return False
     return True
 
+
+def check_win_or_lose(guess, code, num_guesses):
+    # Exit early if the number of guesses exceeds 8
+    if num_guesses > 8:
+        return False
+    
+    # Convert guess to uppercase for case-insensitive comparison
+    guess_upper = [letter.upper() for letter in guess]
+    
+    # Check if the guess and code are identical (win condition)
+    # The guard clause guarantees the number of guesses is 8 or less
+    if guess_upper == code:
+        return True
+    
+    # Game is still in progress
+    return None
+
 # Wave 2
 # Add your Wave 2 functions here
 
