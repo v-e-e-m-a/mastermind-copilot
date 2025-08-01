@@ -3,7 +3,7 @@
 ## Goals
 
 Our goals for this lesson are to:
-- Write code with Coliplot to manipulate and process data in lists, strings, and dictionaries
+- Write code with Copilot to manipulate and process data in lists, strings, and dictionaries
 - Write code to a specification while using a coding assistant
 - Continue to practice reading tests
 
