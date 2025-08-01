@@ -12,6 +12,16 @@ def generate_code():
     valid_letters = ['R', 'O', 'Y', 'G', 'B', 'P']
     return [random.choice(valid_letters) for _ in range(4)]
 
+
+def validate_guess(guess):
+    valid_letters = {'R', 'O', 'Y', 'G', 'B', 'P'}
+    if len(guess) != 4:
+        return False
+    for letter in guess:
+        if str(letter).upper() not in valid_letters:
+            return False
+    return True
+
 # Wave 2
 # Add your Wave 2 functions here
 
