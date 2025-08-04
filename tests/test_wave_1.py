@@ -95,6 +95,61 @@ def test_validate_guess_true_lowercase_letters():
     #assert
     assert result is True
 
+
+def test_validate_guess_false_empty_list():
+    #Arrange
+    guess = []
+
+    #Act
+    result = validate_guess(guess)
+
+    #Assert
+    assert result is False
+
+
+def test_validate_guess_false_length_less_than_four():
+    #Arrange
+    guess = ['R','O','Y']
+
+    #Act
+    result = validate_guess(guess)
+
+    #Assert
+    assert result is False
+
+
+def test_validate_guess_true_mixed_case_letters():
+    #Arrange
+    guess = ['R','o','Y','p']
+
+    #Act
+    result = validate_guess(guess)
+
+    #Assert
+    assert result is True
+
+
+def test_validate_guess_false_non_string_types():
+    #Arrange
+    guess = ['R', 1, 'Y', 'P']
+
+    #Act
+    result = validate_guess(guess)
+
+    #Assert
+    assert result is False
+
+
+def test_validate_guess_false_with_none_value():
+    #Arrange
+    guess = ['R', None, 'Y', 'P']
+
+    #Act
+    result = validate_guess(guess)
+
+    #Assert
+    assert result is False
+
 # --------------------------test check_win_or_lose------------------------------------
 
 def test_check_win_or_lose_both_conditions_true():
@@ -134,3 +189,55 @@ def test_check_win_or_lose_none_if_game_ongoing():
 
     #Assert
     assert result is None
+
+
+def test_check_win_or_lose_true_at_max_guesses():
+    #Arrange
+    guess = ['R','B','B','P']
+    code = ['R','B','B','P']
+    num_guesses = 8
+
+    #Act
+    result = check_win_or_lose(guess, code, num_guesses)
+
+    #Assert
+    assert result is True
+
+
+def test_check_win_or_lose_true_with_mixed_case_guess():
+    #Arrange
+    guess = ['r','B','b','P']
+    code = ['R','B','B','P']
+    num_guesses = 3
+
+    #Act
+    result = check_win_or_lose(guess, code, num_guesses)
+
+    #Assert
+    assert result is True
+
+
+def test_check_win_or_lose_true_at_first_guess():
+    #Arrange
+    guess = ['R','B','B','P']
+    code = ['R','B','B','P']
+    num_guesses = 1
+
+    #Act
+    result = check_win_or_lose(guess, code, num_guesses)
+
+    #Assert
+    assert result is True
+
+
+def test_check_win_or_lose_false_exceeds_max_with_wrong_guess():
+    #Arrange
+    guess = ['R','B','B','O']  # Wrong guess
+    code = ['R','B','B','P']
+    num_guesses = 9
+
+    #Act
+    result = check_win_or_lose(guess, code, num_guesses)
+
+    #Assert
+    assert result is False
