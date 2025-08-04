@@ -23,7 +23,7 @@ def validate_guess(guess):
     # Convert guess to uppercase for case-insensitive comparison
     uppercased_guess = []
     for letter in guess:
-        uppercased_guess.append(letter.upper())
+        uppercased_guess.append(str(letter).upper())
 
     # Return False if we find an invalid element of guess
     for letter in uppercased_guess:
@@ -41,7 +41,7 @@ def check_win_or_lose(guess, code, num_guesses):
     # Convert guess to uppercase for case-insensitive comparison
     uppercased_guess = []
     for letter in guess:
-        uppercased_guess.append(letter.upper())
+        uppercased_guess.append(str(letter).upper())
 
     # Check if the guess and code are identical (win condition)
     # The guard clause guarantees the number of guesses is 8 or less
