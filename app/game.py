@@ -21,9 +21,7 @@ def validate_guess(guess):
         return False
     
     # Convert guess to uppercase for case-insensitive comparison
-    uppercased_guess = []
-    for letter in guess:
-        uppercased_guess.append(str(letter).upper())
+    uppercased_guess = uppercase_list(guess)
 
     # Return False if we find an invalid element of guess
     for letter in uppercased_guess:
@@ -39,9 +37,7 @@ def check_win_or_lose(guess, code, num_guesses):
         return False
 
     # Convert guess to uppercase for case-insensitive comparison
-    uppercased_guess = []
-    for letter in guess:
-        uppercased_guess.append(str(letter).upper())
+    uppercased_guess = uppercase_list(guess)
 
     # Check if the guess and code are identical (win condition)
     # The guard clause guarantees the number of guesses is 8 or less
@@ -50,6 +46,13 @@ def check_win_or_lose(guess, code, num_guesses):
     else: # Game is still in progress
         return None
 
+
+def uppercase_list(char_list):
+    """Convert a list of characters to uppercase."""
+    uppercased_list = []
+    for letter in char_list:
+        uppercased_list.append(str(letter).upper())
+    return uppercased_list
 
 # Wave 2
 # Add your Wave 2 functions here
