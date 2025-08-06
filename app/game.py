@@ -5,12 +5,9 @@ import random
 VALID_LETTERS = {'R', 'O', 'Y', 'G', 'B', 'P'}
 
 def generate_code():
-    code = []
-    
     # Generate a code of 4 random letters from VALID_LETTERS
     letters_list = list(VALID_LETTERS)
-    for _ in range(4):
-        code.append(random.choice(letters_list))
+    code = [random.choice(letters_list) for _ in range(4)]
 
     return code
 
@@ -49,9 +46,7 @@ def check_win_or_lose(guess, code, num_guesses):
 
 def uppercase_list(char_list):
     """Convert a list of characters to uppercase."""
-    uppercased_list = []
-    for letter in char_list:
-        uppercased_list.append(str(letter).upper())
+    uppercased_list = [str(letter).upper() for letter in char_list]
     return uppercased_list
 
 # Wave 2
