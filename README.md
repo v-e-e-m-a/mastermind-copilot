@@ -219,7 +219,8 @@ Next, implement the `format_guess_stats` function which has the following proper
 
 ### Wave 4: Game Loop
 
-Using the functions built in previous waves, complete the `mastermind` function. Note that there are no tests to verify the correctness of your game loop. Instead use play testing and the example outputs provided below to guide your implementation.
+Using the functions built in previous waves, complete the `mastermind` function in `app/mastermind.py`. 
+- Note that there are no tests to verify the correctness of your game loop. Instead use play testing and the example outputs provided below to guide your implementation.
 
 The `mastermind` function should implement a game loop. The game loop is a loop that will keep the game running until the user wants to stop playing and defines the overall logic flow of the game. As part of our game loop, we will need to track the following data:
 - `plays`, an integer representing the total number of rounds played
