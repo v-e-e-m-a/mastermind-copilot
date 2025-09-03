@@ -28,20 +28,12 @@ def validate_guess(guess):
     return True
 
 
-def check_win_or_lose(guess, code, num_guesses):
-    # Exit early if the number of guesses exceeds 8
-    if num_guesses > 8:
-        return False
-
+def check_code_guessed(guess, code):
     # Convert guess to uppercase for case-insensitive comparison
     uppercased_guess = uppercase_list(guess)
 
     # Check if the guess and code are identical (win condition)
-    # The guard clause guarantees the number of guesses is 8 or less
-    if code == uppercased_guess:
-        return True
-    else: # Game is still in progress
-        return None
+    return code == uppercased_guess
 
 
 def uppercase_list(char_list):
