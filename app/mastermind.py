@@ -1,6 +1,6 @@
-from .game import generate_code, validate_guess, color_count, correct_pos_and_color, check_guess, check_win_or_lose, get_win_percentage, format_guess_stats
+from .game import generate_code, validate_guess, check_code_guessed, color_count, correct_pos_and_color, generate_hint, get_win_percentage, format_guess_stats
 
+# Wave 4
 # Implement game loop here
 def mastermind():
     pass
-    

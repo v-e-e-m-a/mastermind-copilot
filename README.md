@@ -92,37 +92,34 @@ Next, we need a way to check if a user's guess is of the correct length and only
 | ['R','P','Y','G'] | ['r','p','y','g'] | True  |
 | ['R','P','Y','G'] | ['R','P','Y','G','B'] | False |
 
-#### Implement `check_win_or_lose`
+#### Implement `check_code_guessed`
 
 Once a user has entered their guess, we need a method to check whether or not the round has been won.
 
-Implement a function called `check_win_or_lose` in `game.py`. This function should have the following properties:
+Implement a function called `check_code_guessed` in `game.py`. This function should have the following properties:
 - Has three parameters:
   - `guess`, which is a list of characters representing the user's guess
   - `code`, which is a list of characters representing the code the user is attempting to guess
-  - `num_guesses`, which is an integer representing the total number of guesses the user has made in the round thus far
 - Returns `True` if the user has won the game 
-    - `guess` and `code` are the same _and_ `num_guesses` is less than or equal to 8
-- Returns `False` if the user has lost the game
-    - if `guess` and `code` are not the same _and_ `num_guesses` is more than 8 
-- Returns `None` if the game is still in progress, the codebreaker has not lost or won the game yet.
+    - `guess` and `code` are the same
+- Returns `False` if the user has not guessed the code
+    - `guess` and `code` are not identical
 
 **Examples**
 
-| guess | code | num_guesses | output |
-|:-----:|:----:| :---------: | :----: |
-| ['R','P','Y','G'] | ['R','P','Y','G'] | 3 | True |
-| ['R','P','Y','G'] | ['R','P','Y','G'] | 8 | True |
-| ['R','P','Y','G'] | ['R','P','Y','G'] | 9 | False |
-| ['R','P','Y','G'] | ['R','R','R','R'] | 9 | False |
-| ['R','O','Y','G'] | ['R','R','R','R'] | 3 | None |
+| guess | code | output |
+|:-----:|:----:| :----: |
+| ['R','P','Y','G'] | ['R','P','Y','G'] | True |
+| ['R','P','Y','G'] | ['R','P','Y','G'] | True |
+| ['R','P','Y','G'] | ['R','P','Y','G'] | False |
+| ['R','P','Y','G'] | ['R','R','R','R'] | False |
 
 ### Wave 2: Provide User Feedback
 Now we need to provide feedback to the user about their guess as defined by the Mastermind game. The goal is to provide the user with two numbers:
 1. The number of pegs that are both the correct color and in the correct position
 2. The number of pegs that are the correct color but in the wrong position
 
-To do this, you will write three functions: `color_count`, `correct_pos_and_color`, and `check_guess`.
+To do this, you will write three functions: `color_count`, `correct_pos_and_color`, and `generate_hint`.
 
 #### Implement `color_count`
 
@@ -162,9 +159,9 @@ The second function to implement is `correct_pos_and_color` in `game.py`. This f
 | ['R','P','Y','G'] | ['G','Y','P','R'] | 0 |
 | ['R','R','R','B'] | ['R','P','B','B'] | 2 |
 
-#### Implement `check_guess`
+#### Implement `generate_hint`
 
-The final function to implement is `check_guess` in `game.py`. This function should have the following properties:
+The final function to implement is `generate_hint` in `game.py`. This function should have the following properties:
 - Has two parameters:
   - `guess`, which is a list of characters representing the user's guess
   - `code`, which is a list of characters representing the code the user is attempting to guess
@@ -222,7 +219,8 @@ Next, implement the `format_guess_stats` function which has the following proper
 
 ### Wave 4: Game Loop
 
-Using the functions built in previous waves, complete the `mastermind` function. Note that there are no tests to verify the correctness of your game loop. Instead use play testing and the example outputs provided below to guide your implementation.
+Using the functions built in previous waves, complete the `mastermind` function in `app/mastermind.py`. 
+- Note that there are no tests to verify the correctness of your game loop. Instead use play testing and the example outputs provided below to guide your implementation.
 
 The `mastermind` function should implement a game loop. The game loop is a loop that will keep the game running until the user wants to stop playing and defines the overall logic flow of the game. As part of our game loop, we will need to track the following data:
 - `plays`, an integer representing the total number of rounds played
