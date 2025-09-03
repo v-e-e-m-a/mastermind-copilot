@@ -33,11 +33,7 @@ def validate_guess(guess):
     return True
 
 
-def check_win_or_lose(guess, code, num_guesses):
-    # Exit early if the number of guesses exceeds 8
-    if num_guesses > 8:
-        return False
-
+def check_code_guessed(guess, code):
     # Convert guess to uppercase for case-insensitive comparison
     uppercased_guess = []
     for letter in guess:

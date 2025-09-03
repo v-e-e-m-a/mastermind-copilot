@@ -1,169 +1,169 @@
-from app.game import color_count, correct_pos_and_color, check_guess
+from app.game import color_count, correct_pos_and_color, generate_hint
 
 # --------------------------test color_count------------------------------------
 
 def test_color_count_returns_int():
-    #Arrange
+    # Arrange
     guess = ['R','R','G','B']
     code = ['R','G','B','P']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
-    #Assert
+    # Assert
     assert type(result) == int
 
 
 def test_color_count_two_matching():
-    #Arrange
+    # Arrange
     guess = ['R','O','G','B']
     code = ['R','O','P','P']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
-    #Assert
+    # Assert
     assert result == 2
 
 
 def test_color_count_order_does_not_matter():
-    #Arrange
+    # Arrange
     guess = ['R','O','G','B']
     code = ['P','P','R','O']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
-    #Assert
+    # Assert
     assert result == 2
 
 
 def test_color_count_letter_not_double_counted():
-    #Arrange
+    # Arrange
     guess = ['R','R','G','B']
     code = ['R','P','P','P']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
     assert result == 1
 
 
 def test_color_count_duplicates_counted_if_echoed():
-    #Arrange
+    # Arrange
     guess = ['R','R','G','P']
     code = ['R','R','O','B']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
     assert result == 2
 
 
 def test_color_count_no_match_returns_zero():
-    #Arrange
+    # Arrange
     guess = ['R','B','O','O']
     code = ['P','P','P','P']
 
-    #Act
+    # Act
     result = color_count(guess, code)
 
-    #Assert
+    # Assert
     assert result == 0
 
 #--------------------------test correct_pos_and_color------------------------------------
 
 def test_correct_pos_and_color_returns_int():
-    #Arrange
+    # Arrange
     guess = ['R','B','B','B']
     code = ['O','O','O','O']
 
-    #Act
+    # Act
     result = correct_pos_and_color(guess, code)
 
-    #Assert
+    # Assert
     assert type(result) == int
 
 
 def test_correct_pos_and_color_two_match():
-    #Arrange
+    # Arrange
     guess = ['R','B','O','P']
     code = ['R','B','G','G']
 
-    #Act
+    # Act
     result = correct_pos_and_color(guess, code)
 
-    #Assert
+    # Assert
     assert result == 2
 
 
 def test_correct_color_but_not_pos_returns_zero():
-    #Arrange
+    # Arrange
     guess = ['R','B','O','P']
     code = ['O','P','R','B']
 
-    #Act
+    # Act
     result = correct_pos_and_color(guess, code)
 
-    #Assert
+    # Assert
     assert result == 0
 
 
 def test_correct_color_and_pos_dups_not_double_counted():
-    #Arrange
+    # Arrange
     guess = ['R','B','O','R']
     code = ['R','P','P','P']
 
-    #Act
+    # Act
     result = correct_pos_and_color(guess, code)
     
-    #Assert
+    # Assert
     assert result == 1
 
 
 def test_correct_pos_and_color_no_match_returns_zero():
-    #Arrange
+    # Arrange
     guess = ['R','B','P','P']
     code = ['O','O','O','O']
 
-    #Act
+    # Act
     result = correct_pos_and_color(guess, code)
 
-    #Assert
+    # Assert
     assert result == 0
 
-#--------------------test check_guess()-------------------------------------
+#--------------------test generate_hint()-------------------------------------
 
-def test_check_guess_matching_codes():
-    #Arrange
+def test_generate_hint_matching_codes():
+    # Arrange
     guess = ['R','B','P','P']
     code = ['R','B','P','P']
-    #Act
-    result = check_guess(guess, code)
+    # Act
+    result = generate_hint(guess, code)
 
-    #Assert
+    # Assert
     assert result == (4, 0)
 
 
-def test_check_guess_mixed_guess():
-    #Arrange
+def test_generate_hint_mixed_guess():
+    # Arrange
     guess = ['R','B','O','P']
     code = ['R','Y','B','P']
 
-    #Act
-    result = check_guess(guess, code)
+    # Act
+    result = generate_hint(guess, code)
 
-    #Assert
+    # Assert
     assert result == (2, 1)
 
 
-def test_check_guess_completely_incorrect():
-    #Arrange
+def test_generate_hint_completely_incorrect():
+    # Arrange
     guess = ['P','P','P','P']
     code = ['R','R','R','R']
 
-    #Act
-    result = check_guess(guess, code)
+    # Act
+    result = generate_hint(guess, code)
 
-    #Assert
+    # Assert
     assert result == (0, 0)
