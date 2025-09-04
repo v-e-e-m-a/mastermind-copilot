@@ -5,11 +5,9 @@ import random
 VALID_LETTERS = {'R', 'O', 'Y', 'G', 'B', 'P'}
 
 def generate_code():
-    # Generate a code of 4 random letters from VALID_LETTERS
+    # Generate a code of 4 random letters from VALID_LETTERS using a list comprehension
     letters_list = list(VALID_LETTERS)
-    code = [random.choice(letters_list) for _ in range(4)]
-
-    return code
+    return [random.choice(letters_list) for _ in range(4)]
 
 
 def validate_guess(guess):
@@ -18,7 +16,7 @@ def validate_guess(guess):
         return False
     
     # Convert guess to uppercase for case-insensitive comparison
-    uppercased_guess = uppercase_list(guess)
+    uppercased_guess = normalize_code(guess)
 
     # Return False if we find an invalid element of guess
     for letter in uppercased_guess:
@@ -30,16 +28,22 @@ def validate_guess(guess):
 
 def check_code_guessed(guess, code):
     # Convert guess to uppercase for case-insensitive comparison
-    uppercased_guess = uppercase_list(guess)
+    uppercased_guess = normalize_code(guess)
 
     # Check if the guess and code are identical (win condition)
-    return code == uppercased_guess
+    if code == uppercased_guess:
+        return True
+    else: # Game is still in progress
+        return None
 
 
-def uppercase_list(char_list):
-    """Convert a list of characters to uppercase."""
-    uppercased_list = [str(letter).upper() for letter in char_list]
-    return uppercased_list
+def normalize_code(code):
+    """
+    Normalizes the casing for a code by converting 
+    the list of characters to uppercase.
+    """    
+    return [str(letter).upper() for letter in code]
+
 
 # Wave 2
 # Add your Wave 2 functions here
