@@ -101,9 +101,8 @@ Implement a function called `check_code_guessed` in `game.py`. This function sho
   - `guess`, which is a list of characters representing the user's guess
   - `code`, which is a list of characters representing the code the user is attempting to guess
 - Returns `True` if the user has won the game 
-    - `guess` and `code` are the same
-- Returns `False` if the user has not guessed the code
-    - `guess` and `code` are not identical
+    - `guess` and `code` are the same regardless of letter casing
+- Returns `False` otherwise
 
 **Examples**
 
