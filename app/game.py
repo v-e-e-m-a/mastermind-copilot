@@ -22,16 +22,18 @@ def validate_guess(guess):
     return True
 
 
+# Function to check if the guess matches the code (case-insensitive)
 def check_code_guessed(guess, code):
-    # Convert guess to uppercase for case-insensitive comparison
-    guess_upper = [letter.upper() for letter in guess]
-    
-    # Check if the guess and code are identical (win condition)
-    # The guard clause guarantees the number of guesses is 8 or less
-    if guess_upper == code:
-        return True
-    else:
-        return False
+    """
+    Determines if the user's guess matches the code (case-insensitive).
+    Args:
+        guess (list): A 4-element list representing the user's guess.
+        code (list): A 4-element list representing the code to guess.
+    Returns:
+        bool: True if guess matches code (case-insensitive), False otherwise.
+    """
+    upper_guess = [letter.upper() for letter in guess]
+    return upper_guess == code
 
 
 # Wave 2
