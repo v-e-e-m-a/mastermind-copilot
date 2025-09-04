@@ -110,8 +110,7 @@ Implement a function called `check_code_guessed` in `game.py`. This function sho
 | guess | code | output |
 |:-----:|:----:| :----: |
 | ['R','P','Y','G'] | ['R','P','Y','G'] | True |
-| ['R','P','Y','G'] | ['R','P','Y','G'] | True |
-| ['R','P','Y','G'] | ['R','P','Y','G'] | False |
+| ['r','p','y','g'] | ['R','P','Y','G'] | True |
 | ['R','P','Y','G'] | ['R','R','R','R'] | False |
 
 ### Wave 2: Provide User Feedback
