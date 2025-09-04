@@ -44,7 +44,7 @@ def test_generate_code_half_or_less_duplicates_over_10_runs():
 
 def test_validate_guess_false_length_greater_than_four():
     # Arrange
-    guess = ['R','R','R','R','R']
+    guess = ['R', 'R', 'R', 'R', 'R']
 
     # Act
     result = validate_guess(guess)
@@ -55,7 +55,7 @@ def test_validate_guess_false_length_greater_than_four():
 
 def test_validate_guess_true_valid_letters_rygp():
     # Arrange
-    guess = ['R','Y','G','P']
+    guess = ['R', 'Y', 'G', 'P']
 
     # Act
     result = validate_guess(guess)
@@ -66,7 +66,7 @@ def test_validate_guess_true_valid_letters_rygp():
 
 def test_validate_guess_true_valid_letters_bp():
     # Arrange
-    guess = ['B','B','P','P']
+    guess = ['B', 'B', 'P', 'P']
 
     # Act
     result = validate_guess(guess)
@@ -77,7 +77,7 @@ def test_validate_guess_true_valid_letters_bp():
 
 def test_validate_guess_false_invalid_letters():
     # Arrange
-    guess = ['R','S','Y','P']
+    guess = ['R', 'S', 'Y', 'P']
 
     # Act
     result = validate_guess(guess)
@@ -88,7 +88,7 @@ def test_validate_guess_false_invalid_letters():
 
 def test_validate_guess_true_lowercase_letters():
     # Arrange
-    guess = ['b','b','p','p']
+    guess = ['b', 'b', 'p', 'p']
 
     # Act
     result = validate_guess(guess)
@@ -110,7 +110,7 @@ def test_validate_guess_false_empty_list():
 
 def test_validate_guess_false_length_less_than_four():
     # Arrange
-    guess = ['R','O','Y']
+    guess = ['R', 'O', 'Y']
 
     # Act
     result = validate_guess(guess)
@@ -121,7 +121,7 @@ def test_validate_guess_false_length_less_than_four():
 
 def test_validate_guess_true_mixed_case_letters():
     # Arrange
-    guess = ['R','o','Y','p']
+    guess = ['R', 'o', 'Y', 'p']
 
     # Act
     result = validate_guess(guess)
@@ -151,12 +151,12 @@ def test_validate_guess_false_with_none_value():
     # Assert
     assert not result
 
-# --------------------------test check_code_guessed------------------------------------
+# --------------------------test check_win_or_lose------------------------------------
 
 def test_check_code_guessed_true():
     # Arrange
-    guess = ['R','B','B','P']
-    code = ['R','B','B','P']
+    guess = ['R', 'B', 'B', 'P']
+    code = ['R', 'B', 'B', 'P']
 
     # Act
     result = check_code_guessed(guess, code)
@@ -165,10 +165,10 @@ def test_check_code_guessed_true():
     assert result
 
 
-def test_check_code_guessed_false_if_game_ongoing():
+def test_check_code_guessed_no_match_false():
     # Arrange
-    guess = ['R','B','B','P']
-    code = ['R','B','B','O']
+    guess = ['R', 'B', 'B', 'P']
+    code = ['R', 'B', 'B', 'O']
 
     # Act
     result = check_code_guessed(guess, code)
@@ -176,14 +176,25 @@ def test_check_code_guessed_false_if_game_ongoing():
     # Assert
     assert not result
 
-
 def test_check_code_guessed_true_with_mixed_case_guess():
     # Arrange
-    guess = ['r','B','b','P']
-    code = ['R','B','B','P']
+    guess = ['r', 'B', 'b', 'P']
+    code = ['R', 'B', 'B', 'P']
 
     # Act
     result = check_code_guessed(guess, code)
 
     # Assert
     assert result
+
+
+def test_check_code_guessed_all_letters_in_wrong_order_false():
+    # Arrange
+    guess = ['R', 'B', 'P', 'B']
+    code = ['R', 'B', 'B', 'P']
+
+    # Act
+    result = check_code_guessed(guess, code)
+
+    # Assert
+    assert not result
