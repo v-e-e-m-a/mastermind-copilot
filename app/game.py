@@ -34,7 +34,7 @@ def check_code_guessed(guess, code):
     if code == uppercased_guess:
         return True
     else: # Game is still in progress
-        return None
+        return False
 
 
 def normalize_code(code):
