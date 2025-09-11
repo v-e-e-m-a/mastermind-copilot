@@ -50,7 +50,7 @@ def test_validate_guess_false_length_greater_than_four():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 
 def test_validate_guess_true_valid_letters_rygp():
@@ -61,7 +61,7 @@ def test_validate_guess_true_valid_letters_rygp():
     result = validate_guess(guess)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_validate_guess_true_valid_letters_bp():
@@ -72,7 +72,7 @@ def test_validate_guess_true_valid_letters_bp():
     result = validate_guess(guess)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_validate_guess_false_invalid_letters():
@@ -83,7 +83,7 @@ def test_validate_guess_false_invalid_letters():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 
 def test_validate_guess_true_lowercase_letters():
@@ -94,7 +94,7 @@ def test_validate_guess_true_lowercase_letters():
     result = validate_guess(guess)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_validate_guess_false_empty_list():
@@ -105,7 +105,7 @@ def test_validate_guess_false_empty_list():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 
 def test_validate_guess_false_length_less_than_four():
@@ -116,7 +116,7 @@ def test_validate_guess_false_length_less_than_four():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 
 def test_validate_guess_true_mixed_case_letters():
@@ -127,7 +127,7 @@ def test_validate_guess_true_mixed_case_letters():
     result = validate_guess(guess)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_validate_guess_false_non_string_types():
@@ -138,7 +138,7 @@ def test_validate_guess_false_non_string_types():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 
 def test_validate_guess_false_with_none_value():
@@ -149,7 +149,7 @@ def test_validate_guess_false_with_none_value():
     result = validate_guess(guess)
 
     # Assert
-    assert not result
+    assert result is False
 
 # --------------------------test check_win_or_lose------------------------------------
 
@@ -162,7 +162,7 @@ def test_check_code_guessed_true():
     result = check_code_guessed(guess, code)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_check_code_guessed_no_match_false():
@@ -174,7 +174,7 @@ def test_check_code_guessed_no_match_false():
     result = check_code_guessed(guess, code)
 
     # Assert
-    assert not result
+    assert result is False
 
 def test_check_code_guessed_true_with_mixed_case_guess():
     # Arrange
@@ -185,7 +185,7 @@ def test_check_code_guessed_true_with_mixed_case_guess():
     result = check_code_guessed(guess, code)
 
     # Assert
-    assert result
+    assert result is True
 
 
 def test_check_code_guessed_all_letters_in_wrong_order_false():
@@ -197,4 +197,4 @@ def test_check_code_guessed_all_letters_in_wrong_order_false():
     result = check_code_guessed(guess, code)
 
     # Assert
-    assert not result
+    assert result is False
