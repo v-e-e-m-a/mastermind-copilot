@@ -43,8 +43,8 @@ def check_code_guessed(guess, code):
     # The guard clause guarantees the number of guesses is 8 or less
     if code == uppercased_guess:
         return True
-    else: # Game is still in progress
-        return None
+    else: # Code has not been guessed
+        return False
 
 
 # Wave 2
