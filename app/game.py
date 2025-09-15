@@ -29,12 +29,8 @@ def validate_guess(guess):
 def check_code_guessed(guess, code):
     # Convert guess to uppercase for case-insensitive comparison
     uppercased_guess = normalize_code(guess)
-
     # Check if the guess and code are identical (win condition)
-    if code == uppercased_guess:
-        return True
-    else: # Game is still in progress
-        return False
+    return code == uppercased_guess
 
 
 def normalize_code(code):
