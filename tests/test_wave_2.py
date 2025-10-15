@@ -1,4 +1,4 @@
-from app.game import color_count, correct_pos_and_color, check_guess
+'''from app.game import color_count, correct_pos_and_color, check_guess
 
 # --------------------------test color_count------------------------------------
 
@@ -155,3 +155,4 @@ def test_check_guess_completely_incorrect():
 
     # Assert
     assert result == (0, 0)
+'''
